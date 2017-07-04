@@ -1,6 +1,13 @@
-from appium import webdriver
+import time
+import calendar
+import datetime
 
-desired_caps = {}
-driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+def getVacationDate(year):
+	start = str (year) + '-12-21'
+	start_day = datetime.datetime.strptime(start, '%Y-%m-%d')
+	for i in range(5):
+		delta = datetime.timedelta(days=73)
+		vacation = start_day + delta*(i+1)
+		print(vacation)
 
-driver.find_element().se
+getVacationDate(2016)
